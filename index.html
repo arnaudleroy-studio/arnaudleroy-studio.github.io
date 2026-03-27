@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arnaud Leroy Studio | Open Source Tools &amp; Data Platforms</title>
+    <meta name="description" content="Arnaud Leroy Studio builds open-source tools and data platforms. Home of DropThe, CoffeeTrove, Mohit Khare, and Facil Guide.">
+    <meta property="og:title" content="Arnaud Leroy Studio">
+    <meta property="og:description" content="A small studio building open-source tools and data platforms.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://arnaudleroy-studio.github.io">
+    <link rel="canonical" href="https://arnaudleroy-studio.github.io">
+    <style>
+        :root {
+            --color-bg: #fafafa;
+            --color-surface: #ffffff;
+            --color-text: #1a1a1a;
+            --color-text-secondary: #555555;
+            --color-border: #e5e5e5;
+            --color-accent: #2563eb;
+            --color-accent-hover: #1d4ed8;
+            --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            --font-mono: "SF Mono", "Fira Code", "Fira Mono", "Roboto Mono", monospace;
+            --max-width: 960px;
+            --radius: 8px;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --color-bg: #0f0f0f;
+                --color-surface: #1a1a1a;
+                --color-text: #e5e5e5;
+                --color-text-secondary: #999999;
+                --color-border: #2a2a2a;
+                --color-accent: #60a5fa;
+                --color-accent-hover: #93bbfd;
+            }
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background: var(--color-bg);
+            color: var(--color-text);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Header */
+        header {
+            padding: 64px 0 48px;
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .studio-name {
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            margin-bottom: 12px;
+        }
+
+        .studio-tagline {
+            font-size: 18px;
+            color: var(--color-text-secondary);
+            max-width: 560px;
+            line-height: 1.5;
+        }
+
+        /* Projects */
+        .projects {
+            padding: 48px 0;
+        }
+
+        .section-label {
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--color-text-secondary);
+            margin-bottom: 32px;
+        }
+
+        .project {
+            background: var(--color-surface);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius);
+            padding: 32px;
+            margin-bottom: 20px;
+            transition: border-color 0.2s ease;
+        }
+
+        .project:hover {
+            border-color: var(--color-accent);
+        }
+
+        .project-header {
+            display: flex;
+            align-items: baseline;
+            gap: 12px;
+            margin-bottom: 8px;
+            flex-wrap: wrap;
+        }
+
+        .project-name {
+            font-size: 20px;
+            font-weight: 600;
+            letter-spacing: -0.3px;
+        }
+
+        .project-domain {
+            font-family: var(--font-mono);
+            font-size: 13px;
+            color: var(--color-accent);
+            text-decoration: none;
+        }
+
+        .project-domain:hover {
+            text-decoration: underline;
+        }
+
+        .project-desc {
+            color: var(--color-text-secondary);
+            font-size: 15px;
+            margin-bottom: 16px;
+            max-width: 640px;
+        }
+
+        .project-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .project-links a {
+            display: inline-block;
+            font-size: 13px;
+            font-family: var(--font-mono);
+            color: var(--color-text);
+            text-decoration: none;
+            padding: 4px 12px;
+            border: 1px solid var(--color-border);
+            border-radius: 4px;
+            transition: all 0.15s ease;
+        }
+
+        .project-links a:hover {
+            border-color: var(--color-accent);
+            color: var(--color-accent);
+        }
+
+        .project-links a.pypi {
+            background: var(--color-bg);
+        }
+
+        /* Open Source */
+        .oss {
+            padding: 48px 0;
+            border-top: 1px solid var(--color-border);
+        }
+
+        .packages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 12px;
+        }
+
+        .package {
+            background: var(--color-surface);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius);
+            padding: 20px;
+            text-decoration: none;
+            color: inherit;
+            transition: border-color 0.2s ease;
+        }
+
+        .package:hover {
+            border-color: var(--color-accent);
+        }
+
+        .package-name {
+            font-family: var(--font-mono);
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .package-registry {
+            font-size: 12px;
+            color: var(--color-text-secondary);
+        }
+
+        /* Footer */
+        footer {
+            padding: 48px 0;
+            border-top: 1px solid var(--color-border);
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .footer-text {
+            font-size: 13px;
+            color: var(--color-text-secondary);
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .footer-links a {
+            font-size: 13px;
+            color: var(--color-text-secondary);
+            text-decoration: none;
+        }
+
+        .footer-links a:hover {
+            color: var(--color-accent);
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            header {
+                padding: 40px 0 32px;
+            }
+
+            .studio-name {
+                font-size: 24px;
+            }
+
+            .studio-tagline {
+                font-size: 16px;
+            }
+
+            .project {
+                padding: 24px;
+            }
+
+            .project-header {
+                flex-direction: column;
+                gap: 4px;
+            }
+
+            .packages-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <header>
+            <h1 class="studio-name">Arnaud Leroy Studio</h1>
+            <p class="studio-tagline">A small studio building open-source tools and data platforms. We ship useful software across media, coffee, developer tools, and accessible tech education.</p>
+        </header>
+
+        <section class="projects">
+            <p class="section-label">Projects</p>
+
+            <article class="project">
+                <div class="project-header">
+                    <h2 class="project-name">DropThe</h2>
+                    <a href="https://dropthe.org" class="project-domain" rel="noopener">dropthe.org</a>
+                </div>
+                <p class="project-desc">Data utility media network. Entity-driven coverage of movies, series, crypto, companies, and travel with a knowledge graph of 1.8 million entities and 2.9 million links.</p>
+                <div class="project-links">
+                    <a href="https://dropthe.org">Home</a>
+                    <a href="https://dropthe.org/data/">Data Hub</a>
+                    <a href="https://dropthe.org/studio/">Studio</a>
+                    <a href="https://github.com/arnaudleroy-studio/dropthe-python" rel="noopener">GitHub</a>
+                    <a href="https://pypi.org/project/dropthe/" rel="noopener" class="pypi">PyPI</a>
+                </div>
+            </article>
+
+            <article class="project">
+                <div class="project-header">
+                    <h2 class="project-name">CoffeeTrove</h2>
+                    <a href="https://coffeetrove.com" class="project-domain" rel="noopener">coffeetrove.com</a>
+                </div>
+                <p class="project-desc">Coffee discovery platform with 440,000 cafes worldwide. Golden Drop scoring system, interactive global map, and a comprehensive coffee knowledge base covering brewing methods, bean origins, and drinks.</p>
+                <div class="project-links">
+                    <a href="https://coffeetrove.com">Home</a>
+                    <a href="https://coffeetrove.com/map">World Map</a>
+                    <a href="https://coffeetrove.com/knowledge">Knowledge</a>
+                    <a href="https://github.com/arnaudleroy-studio/coffeetrove-python" rel="noopener">GitHub</a>
+                    <a href="https://pypi.org/project/coffeetrove/" rel="noopener" class="pypi">PyPI</a>
+                </div>
+            </article>
+
+            <article class="project">
+                <div class="project-header">
+                    <h2 class="project-name">Mohit Khare</h2>
+                    <a href="https://mohitkhare.me" class="project-domain" rel="noopener">mohitkhare.me</a>
+                </div>
+                <p class="project-desc">AI engineering and developer tools. Technical writing on machine learning systems, infrastructure, and practical software engineering.</p>
+                <div class="project-links">
+                    <a href="https://mohitkhare.me">Home</a>
+                    <a href="https://mohitkhare.me/blog">Blog</a>
+                    <a href="https://github.com/arnaudleroy-studio/mohitkhare-python" rel="noopener">GitHub</a>
+                    <a href="https://pypi.org/project/mohitkhare/" rel="noopener" class="pypi">PyPI</a>
+                </div>
+            </article>
+
+            <article class="project">
+                <div class="project-header">
+                    <h2 class="project-name">Facil Guide</h2>
+                    <a href="https://facil.guide" class="project-domain" rel="noopener">facil.guide</a>
+                </div>
+                <p class="project-desc">Simple tech guides for seniors, available in five languages. Step-by-step instructions for phones, tablets, apps, and everyday technology written in clear, patient language.</p>
+                <div class="project-links">
+                    <a href="https://facil.guide">Home</a>
+                    <a href="https://facil.guide/en/">English</a>
+                    <a href="https://facil.guide/es/">Espanol</a>
+                    <a href="https://facil.guide/fr/">Francais</a>
+                    <a href="https://github.com/arnaudleroy-studio/facilguide-python" rel="noopener">GitHub</a>
+                    <a href="https://pypi.org/project/facilguide/" rel="noopener" class="pypi">PyPI</a>
+                </div>
+            </article>
+        </section>
+
+        <section class="oss">
+            <p class="section-label">Open Source Packages</p>
+            <div class="packages-grid">
+                <a href="https://pypi.org/project/dropthe/" class="package" rel="noopener">
+                    <div class="package-name">dropthe</div>
+                    <div class="package-registry">PyPI / Python</div>
+                </a>
+                <a href="https://pypi.org/project/coffeetrove/" class="package" rel="noopener">
+                    <div class="package-name">coffeetrove</div>
+                    <div class="package-registry">PyPI / Python</div>
+                </a>
+                <a href="https://pypi.org/project/mohitkhare/" class="package" rel="noopener">
+                    <div class="package-name">mohitkhare</div>
+                    <div class="package-registry">PyPI / Python</div>
+                </a>
+                <a href="https://pypi.org/project/facilguide/" class="package" rel="noopener">
+                    <div class="package-name">facilguide</div>
+                    <div class="package-registry">PyPI / Python</div>
+                </a>
+            </div>
+        </section>
+
+        <footer>
+            <div class="footer-content">
+                <span class="footer-text">Arnaud Leroy Studio</span>
+                <div class="footer-links">
+                    <a href="https://github.com/arnaudleroy-studio" rel="noopener">GitHub</a>
+                    <a href="https://dropthe.org" rel="noopener">DropThe</a>
+                    <a href="https://coffeetrove.com" rel="noopener">CoffeeTrove</a>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+</body>
+</html>
